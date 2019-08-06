@@ -1,0 +1,22 @@
+.search {
+  flex: 0 1 40%;
+  display: flex;
+  justify-content: center;
+  &__input {
+    font: inherit;
+    border-radius: 5rem;
+    outline: none;
+    border: 2px solid var(--color-tertiary-dark);
+    padding: .5rem 2rem;
+    width: 70%;
+  }
+
+  &__btn {
+    font: inherit;
+    border-radius: 5rem;
+    outline: none;
+    border: none;
+    padding: 0 2rem;
+    transform: translateX(-6rem);
+  }
+}
