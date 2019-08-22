@@ -1,0 +1,4 @@
+export const SEARCH_RECIPES = 'SEARCH_RECIPES';
+export const GET_CURRENT_RECIPE = 'GET_RECIPE';
+export const SET_LOADING = 'SET_LOADING';
+export const RECIPE_ERROR = 'RECIPE_ERROR';
