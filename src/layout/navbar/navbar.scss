@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 6rem;
   background-color: var(--color-white);
   box-shadow: var(--shadow-dark);
-  padding: 1rem;
+  padding: 0 2rem;
 
   &__logo {
     display: flex;

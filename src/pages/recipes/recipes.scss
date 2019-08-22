@@ -1,0 +1,29 @@
+.recipes-page {
+  display: flex;
+}
+
+.recipe-list {
+  flex: 0 1 25%;
+  height: calc(100vh - 6rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--color-grey-light);
+
+  &__item {
+    padding: 2rem 1rem;
+    
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+
+  &__img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    float: left;
+  }
+}
