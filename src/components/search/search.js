@@ -4,11 +4,19 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { searchRecipes } from '../../redux/recipe/recipeActions';
+import { searchRecipes, setLoading } from '../../redux/recipe/recipeActions';
+
+import Spinner from '../../layout/spinner/spinner';
 
 import './search.scss';
 
-const Search = ({ searchRecipes, history, searchRecipeList }) => {
+const Search = ({
+  searchRecipes,
+  history,
+  searchRecipeList,
+  loading,
+  setLoading
+}) => {
   useEffect(() => {
     if (searchRecipeList !== null) {
       // Redirect to recipes page
@@ -20,6 +28,7 @@ const Search = ({ searchRecipes, history, searchRecipeList }) => {
 
   const onSearch = e => {
     e.preventDefault();
+    setLoading();
     searchRecipes(searchQuery.current.value);
     searchQuery.current.value = '';
   };
@@ -34,7 +43,9 @@ const Search = ({ searchRecipes, history, searchRecipeList }) => {
           ref={searchQuery}
           required
         />
-        <button className='search__btn'>Search</button>
+        <button className='search__btn'>
+          {loading ? <Spinner /> : 'Search'}
+        </button>
       </form>
     </React.Fragment>
   );
@@ -45,14 +56,15 @@ Search.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  searchRecipeList: state.recipes.searchRecipeList
+  searchRecipeList: state.recipes.searchRecipeList,
+  loading: state.recipes.loading
 });
 
 export default compose(
   withRouter,
   connect(
     mapStateToProps,
-    { searchRecipes }
+    { searchRecipes, setLoading }
   )
 )(Search);
 

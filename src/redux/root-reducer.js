@@ -1,6 +1,17 @@
 import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import recipeReducer from './recipe/recipeReducer';
 
-export default combineReducers({
+const persistConfig = {
+  key: 'root',
+  storage
+  // blacklist: ['recipes']
+};
+
+const rootReducer = combineReducers({
   recipes: recipeReducer
 });
+
+export default persistReducer(persistConfig, rootReducer);

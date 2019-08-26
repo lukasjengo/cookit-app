@@ -22,7 +22,9 @@ const App = ({ searchRecipeList }) => (
       <Route exact path='/signin' component={SignIn} />
       <Route
         path='/recipes'
-        render={() => (searchRecipeList ? <Recipes /> : <Redirect to='/' />)}
+        render={props =>
+          searchRecipeList ? <Recipes {...props} /> : <Redirect to='/' />
+        }
       />
     </Switch>
   </div>
