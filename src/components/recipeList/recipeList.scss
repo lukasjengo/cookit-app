@@ -1,0 +1,7 @@
+.recipe-list {
+  flex: 0 1 25%;
+  height: calc(100vh - 6rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  // background-color: var(--color-grey-light);
+}

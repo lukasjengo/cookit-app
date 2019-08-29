@@ -1,0 +1,34 @@
+.recipe-list {
+  a {
+    text-decoration: none;
+    color: var(--color-black);
+  }
+  
+  &__item {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    display: block;
+    flex: 0 0 15rem;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5rem;
+  }
+
+  &__text {
+
+  }
+
+  &__title {
+    font-size: 1.7rem;
+  }
+
+  &__publisher {
+
+  }
+}

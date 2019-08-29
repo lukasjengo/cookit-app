@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import RecipeListItem from '../recipeListItem/recipeListItem';
 
+import './recipeList.scss';
+
 const RecipeList = ({ searchRecipeList }) => {
   return (
     <ul className='recipe-list'>

@@ -17,12 +17,12 @@ const Search = ({
   loading,
   setLoading
 }) => {
-  useEffect(() => {
-    if (searchRecipeList !== null) {
-      // Redirect to recipes page
-      history.push('/recipes');
-    }
-  }, [searchRecipeList, history]);
+  // useEffect(() => {
+  //   if (searchRecipeList !== null) {
+  //     // Redirect to recipes page
+  //     history.push('/recipes');
+  //   }
+  // }, [searchRecipeList, history]);
 
   const searchQuery = useRef('');
 
