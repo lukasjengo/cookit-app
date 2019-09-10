@@ -1,0 +1,15 @@
+.hero {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 6rem);
+  background-image: linear-gradient(rgba(#000000, .5), rgba(#000000, .5)), url('../../assets/hero-image-large-2.jpg');
+  background-size: cover;
+  background-position: center;
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+  }
+}

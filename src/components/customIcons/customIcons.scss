@@ -3,6 +3,16 @@
   height: 2rem;
 }
 
+.icon-secondary {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .icon-checkmark {
   fill: green;
+}
+
+.icon-search {
+  fill: var(--color-grey-dark-1);
+  transform: translateX(-3rem);
 }

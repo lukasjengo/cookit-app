@@ -1,0 +1,19 @@
+.alert {
+  position: absolute;
+  top: 15rem;
+  right: 15rem;
+
+  &:not(:last-child) {
+    margin-top: 2rem;
+  }
+
+  &__item {
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    background-color: var(--color-primary-dark);
+    box-shadow: var(--shadow-dark);
+    font-size: 1.2rem;
+    color: var(--color-white);
+  }
+
+}

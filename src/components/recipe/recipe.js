@@ -1,12 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+
+import { likeRecipe, unlikeRecipe } from '../../redux/recipe/recipeActions';
 
 import Spinner from '../../layout/spinner/spinner';
 import CustomIcons from '../customIcons/customIcons';
 
 import './recipe.scss';
 
-const Recipe = ({ currentRecipe, match, loading }) => {
+const Recipe = ({
+  currentRecipe,
+  match,
+  history,
+  loading,
+  likeRecipe,
+  unlikeRecipe,
+  likedRecipes
+}) => {
+  const [isLiked, setLiked] = useState(false);
+
+  useEffect(() => {
+    if (
+      match.path.includes('liked-recipes') ||
+      likedRecipes.find(recipe => recipe.recipe_id === currentRecipe.recipe_id)
+    ) {
+      setLiked(true);
+    } else {
+      setLiked(false);
+    }
+  }, [likedRecipes, currentRecipe, match.path]);
+
+  const onLike = e => {
+    e.preventDefault();
+    if (!isLiked) {
+      setLiked(true);
+      likeRecipe(currentRecipe);
+    } else {
+      setLiked(false);
+      if (match.path.includes('liked-recipes')) history.push('/liked-recipes');
+      unlikeRecipe(currentRecipe.recipe_id);
+    }
+  };
   if (loading) {
     return <Spinner style={{ width: '5rem', height: '5rem' }} />;
   } else {
@@ -39,6 +73,9 @@ const Recipe = ({ currentRecipe, match, loading }) => {
             </li>
           ))}
         </ul>
+        <button onClick={onLike}>
+          {isLiked || match.path.includes('liked-recipes') ? 'Unlike' : 'Like'}
+        </button>
       </main>
     );
   }
@@ -46,7 +83,11 @@ const Recipe = ({ currentRecipe, match, loading }) => {
 
 const mapStateToProps = state => ({
   currentRecipe: state.recipes.currentRecipe,
-  loading: state.recipes.loading
+  loading: state.recipes.loading,
+  likedRecipes: state.recipes.likedRecipes
 });
 
-export default connect(mapStateToProps)(Recipe);
+export default connect(
+  mapStateToProps,
+  { likeRecipe, unlikeRecipe }
+)(Recipe);

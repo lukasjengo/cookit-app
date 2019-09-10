@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import Recipe from '../../components/recipe/recipe';
 import RecipeList from '../../components/recipeList/recipeList';
 
-import './recipes.scss';
+import './likedRecipes.scss';
 
-const Recipes = ({ match, searchRecipeList }) => (
+const LikedRecipes = ({ match, likedRecipes }) => (
   <div className='recipes-page'>
-    <RecipeList recipeList={searchRecipeList} />
+    <RecipeList recipeList={likedRecipes} isLiked={true} />
     <Route path={`${match.path}/:recipeTitle`} component={Recipe} />
   </div>
 );
 
 const mapStateToProps = state => ({
-  searchRecipeList: state.recipes.searchRecipeList
+  likedRecipes: state.recipes.likedRecipes
 });
 
-export default connect(mapStateToProps)(Recipes);
+export default connect(mapStateToProps)(LikedRecipes);

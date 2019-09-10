@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { searchRecipes, setLoading } from '../../redux/recipe/recipeActions';
 
 import Spinner from '../../layout/spinner/spinner';
+import CustomIcons from '../customIcons/customIcons';
 
 import './search.scss';
 
@@ -15,16 +16,21 @@ const Search = ({
   history,
   searchRecipeList,
   loading,
-  setLoading
+  setLoading,
+  searchFocus
 }) => {
-  // useEffect(() => {
-  //   if (searchRecipeList !== null) {
-  //     // Redirect to recipes page
-  //     history.push('/recipes');
-  //   }
-  // }, [searchRecipeList, history]);
+  useEffect(() => {
+    if (searchRecipeList.length !== 0) {
+      // Redirect to recipes page
+      history.push('/recipes');
+    }
 
-  const searchQuery = useRef('');
+    if (searchFocus) {
+      searchQuery.current.focus();
+    }
+  }, [searchRecipeList, history, searchFocus]);
+
+  const searchQuery = createRef();
 
   const onSearch = e => {
     e.preventDefault();
@@ -38,14 +44,12 @@ const Search = ({
       <form className='search' onSubmit={onSearch}>
         <input
           placeholder='Search for incredible recipes'
-          type='search'
+          type='text'
           className='search__input'
           ref={searchQuery}
           required
         />
-        <button className='search__btn'>
-          {loading ? <Spinner /> : 'Search'}
-        </button>
+        <CustomIcons name='icon-search' type='icon-secondary' />
       </form>
     </React.Fragment>
   );
@@ -57,7 +61,8 @@ Search.propTypes = {
 
 const mapStateToProps = state => ({
   searchRecipeList: state.recipes.searchRecipeList,
-  loading: state.recipes.loading
+  loading: state.recipes.loading,
+  searchFocus: state.recipes.searchFocus
 });
 
 export default compose(

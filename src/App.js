@@ -5,25 +5,40 @@ import { connect } from 'react-redux';
 // PAGES
 import HomePage from './pages/homepage/homepage';
 import About from './pages/about/about';
-import SignIn from './pages/signin/signin';
+import LikedRecipes from './pages/likedRecipes/likedRecipes';
 import Recipes from './pages/recipes/recipes';
 
 // LAYOUT
 import Navbar from './layout/navbar/navbar';
+import Alert from './layout/alert/alert';
 
 import './App.scss';
 
-const App = ({ searchRecipeList }) => (
+const App = ({ searchRecipeList, likedRecipes }) => (
   <div className='App'>
     <Navbar />
+    <Alert />
     <Switch>
       <Route exact path='/' component={HomePage} />
       <Route exact path='/about' component={About} />
-      <Route exact path='/signin' component={SignIn} />
+      <Route
+        path='/liked-recipes'
+        render={props =>
+          likedRecipes.length !== 0 ? (
+            <LikedRecipes {...props} />
+          ) : (
+            <Redirect to='/' />
+          )
+        }
+      />
       <Route
         path='/recipes'
         render={props =>
-          searchRecipeList ? <Recipes {...props} /> : <Redirect to='/' />
+          searchRecipeList.length !== 0 ? (
+            <Recipes {...props} />
+          ) : (
+            <Redirect to='/' />
+          )
         }
       />
     </Switch>
@@ -31,7 +46,8 @@ const App = ({ searchRecipeList }) => (
 );
 
 const mapStateToProps = state => ({
-  searchRecipeList: state.recipes.searchRecipeList
+  searchRecipeList: state.recipes.searchRecipeList,
+  likedRecipes: state.recipes.likedRecipes
 });
 
 export default connect(mapStateToProps)(App);
