@@ -2,14 +2,39 @@
   position: relative;
   width: 100vw;
   height: calc(100vh - 6rem);
-  background-image: linear-gradient(rgba(#000000, .5), rgba(#000000, .5)), url('../../assets/hero-image-large-2.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('./assets/hero-image-large-2.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 50%;
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('./assets/hero-image-large-2.jpg');
+  }
+
+  @include respond(phone) {
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('./assets/hero-image-small-2.jpg');
+  }
 
   &__content {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 70%;
-    transform: translate(-50%, -50%);
+    transform: translate(-30%, -50%);
+
+    @include respond(tab-port) {
+      left: 55%;
+      transform: translateY(-50%);
+    }
+
+    @include respond(phone) {
+      top: 7rem;
+      left: 15rem;
+      transform: translateX(-5rem);
+    }
+
+    @include respond(phone-xs) {
+      top: 7rem;
+      left: 5rem;
+      transform: translateX(0);
+    }
   }
 }

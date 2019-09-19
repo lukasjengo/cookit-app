@@ -1,0 +1,11 @@
+.about-page {
+  max-width: 75rem;
+  margin: 10rem auto;
+
+  a,
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: var(--color-tertiary-dark);
+  }
+}

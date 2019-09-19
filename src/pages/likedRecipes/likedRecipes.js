@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import Recipe from '../../components/recipe/recipe';
 import RecipeList from '../../components/recipeList/recipeList';
 
-import './likedRecipes.scss';
-
 const LikedRecipes = ({ match, likedRecipes }) => (
   <div className='recipes-page'>
     <RecipeList recipeList={likedRecipes} isLiked={true} />

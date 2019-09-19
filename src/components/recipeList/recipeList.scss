@@ -1,7 +1,8 @@
-.recipe-list {
+.recipe-side {
   flex: 0 1 25%;
-  height: calc(100vh - 6rem);
+  height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  // background-color: var(--color-grey-light);
+  padding-top: 2rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './alert.scss';
-
 const Alert = ({ errors }) =>
   errors.length > 0 &&
   errors.map(error => (

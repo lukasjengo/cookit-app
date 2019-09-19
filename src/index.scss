@@ -1,0 +1,18 @@
+@import './styles/mixins';
+
+@import './App';
+
+@import './layout/navbar/navbar';
+@import './layout/alert/alert';
+@import './layout/spinner/spinner';
+
+@import './components/customIcons/customIcons';
+@import './components/recipe/recipe';
+@import './components/recipeList/recipeList';
+@import './components/recipeListItem/recipeListItem';
+@import './components/search/search';
+
+@import './pages/about/about';
+@import './pages/homepage/homepage';
+@import './pages/likedRecipes/likedRecipes';
+@import './pages/recipes/recipes';

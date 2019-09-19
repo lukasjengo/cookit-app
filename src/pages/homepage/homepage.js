@@ -3,12 +3,17 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { setSearchFocus } from '../../redux/recipe/recipeActions';
 
-import './homepage.scss';
-
-const HomePage = ({ setSearchFocus }) => {
+const HomePage = ({ setSearchFocus, searchRecipeList, history }) => {
   const onFind = e => {
     e.preventDefault();
     setSearchFocus();
+  };
+
+  const onRestore = e => {
+    e.preventDefault();
+    if (searchRecipeList.length !== 0) {
+      history.push('/recipes');
+    }
   };
   return (
     <Fragment>
@@ -23,16 +28,22 @@ const HomePage = ({ setSearchFocus }) => {
           <button onClick={onFind} className='btn btn-primary'>
             Find your recipe
           </button>
-          <button className='btn btn-secondary ml-2'>
-            Restore previous search
-          </button>
+          {searchRecipeList.length !== 0 && (
+            <button onClick={onRestore} className='btn btn-secondary'>
+              Previous search
+            </button>
+          )}
         </div>
       </div>
     </Fragment>
   );
 };
 
+const mapStateToProps = state => ({
+  searchRecipeList: state.recipes.searchRecipeList
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { setSearchFocus }
 )(HomePage);

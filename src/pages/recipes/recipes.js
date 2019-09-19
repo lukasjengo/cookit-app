@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import Recipe from '../../components/recipe/recipe';
 import RecipeList from '../../components/recipeList/recipeList';
 
-import './recipes.scss';
-
 const Recipes = ({ match, searchRecipeList }) => (
   <div className='recipes-page'>
     <RecipeList recipeList={searchRecipeList} />

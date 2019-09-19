@@ -13,7 +13,7 @@ import {
 } from './recipeTypes';
 
 // Search API for recipes
-export const searchRecipes = searchQuery => async dispatch => {
+export const searchRecipes = (searchQuery, history) => async dispatch => {
   try {
     const res = await axios.get(
       `https://www.food2fork.com/api/search?key=${process.env.REACT_APP_RECIPE_API_KEY}&q=${searchQuery}`
@@ -28,6 +28,7 @@ export const searchRecipes = searchQuery => async dispatch => {
       type: SEARCH_RECIPES,
       payload: data
     });
+    history.push('/recipes');
   } catch (err) {
     setRecipeError(err.message);
   }

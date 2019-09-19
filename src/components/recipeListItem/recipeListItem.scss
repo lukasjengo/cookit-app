@@ -1,4 +1,6 @@
 .recipe-list {
+  margin-top: 1.5rem;
+
   a {
     text-decoration: none;
     color: var(--color-black);
@@ -10,6 +12,15 @@
     align-items: center;
   }
 
+  &__item:hover &__img {
+    border: 2px solid var(--color-tertiary-dark);
+  }
+
+  &__item:hover &__title::after {
+    width: 5rem;
+    transition: width .5s ease-in;
+  }
+
   &__img {
     display: block;
     flex: 0 0 15rem;
@@ -18,17 +29,28 @@
     border-radius: 50%;
     object-fit: cover;
     margin-right: 1.5rem;
-  }
 
-  &__text {
-
+    transition: border .2s ease-in;
   }
 
   &__title {
+    position: relative;
     font-size: 1.7rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background-color: var(--color-tertiary-dark);
+    }
   }
 
   &__publisher {
-
+    display: inline-block;
+    margin-top: .5rem;
   }
 }

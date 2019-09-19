@@ -13,15 +13,14 @@
     background-size: cover;
     background-position: center;
     border-radius: 3px;
+    position: relative;
   }
 
-  &__title {
-    display: inline-block;
-    margin: 0 auto;
-  }
-
-  &__publisher {
-    display: block;
+  &__hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__ingredients {
@@ -30,11 +29,11 @@
     column-gap: 4rem;
   }
 
-  &__icon-check {
-    // fill: var(--color-success);
-    fill: green;
-    width: 5rem;
-    height: 5rem;
+  &__ingredient {
+    font-size: 1.3rem;
 
+    .icon-primary {
+      margin-right: .5rem;
+    }
   }
 }

@@ -12,8 +12,6 @@ import Recipes from './pages/recipes/recipes';
 import Navbar from './layout/navbar/navbar';
 import Alert from './layout/alert/alert';
 
-import './App.scss';
-
 const App = ({ searchRecipeList, likedRecipes }) => (
   <div className='App'>
     <Navbar />

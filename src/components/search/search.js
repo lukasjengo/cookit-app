@@ -6,36 +6,28 @@ import { withRouter } from 'react-router-dom';
 
 import { searchRecipes, setLoading } from '../../redux/recipe/recipeActions';
 
-import Spinner from '../../layout/spinner/spinner';
 import CustomIcons from '../customIcons/customIcons';
-
-import './search.scss';
 
 const Search = ({
   searchRecipes,
   history,
-  searchRecipeList,
   loading,
   setLoading,
   searchFocus
 }) => {
-  useEffect(() => {
-    if (searchRecipeList.length !== 0) {
-      // Redirect to recipes page
-      history.push('/recipes');
-    }
+  const searchQuery = createRef();
 
+  useEffect(() => {
     if (searchFocus) {
       searchQuery.current.focus();
     }
-  }, [searchRecipeList, history, searchFocus]);
-
-  const searchQuery = createRef();
+    // eslint-disable-next-line
+  }, [searchFocus]);
 
   const onSearch = e => {
     e.preventDefault();
     setLoading();
-    searchRecipes(searchQuery.current.value);
+    searchRecipes(searchQuery.current.value, history);
     searchQuery.current.value = '';
   };
 
@@ -48,6 +40,7 @@ const Search = ({
           className='search__input'
           ref={searchQuery}
           required
+          disabled={loading}
         />
         <CustomIcons name='icon-search' type='icon-secondary' />
       </form>

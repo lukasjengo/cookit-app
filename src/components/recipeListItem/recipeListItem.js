@@ -6,8 +6,6 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { getCurrentRecipe, setLoading } from '../../redux/recipe/recipeActions';
 
-import './recipeListItem.scss';
-
 const RecipeListItem = ({
   recipe: { recipe_id, image_url, title, publisher },
   getCurrentRecipe,

@@ -7,6 +7,10 @@
   box-shadow: var(--shadow-dark);
   padding: 0 4rem;
 
+  a {
+    text-decoration: none;
+  }
+
   &__logo {
     display: flex;
     // align-items: center;
@@ -23,25 +27,28 @@
       background-image: linear-gradient(to right bottom, var(--color-primary), var(--color-tertiary));
       background-clip: text;
       margin-left: 1rem;
+
+      @include respond(phone) {
+        display: none;
+      }
     }
   }
 
   &__nav {
     list-style: none;
-    display: flex;
-    // align-items: center;
+    display: flex;    
+
+    @include respond(phone) {
+      display: none;
+    }
+
     &--item {
       position: relative;
       font-size: 1.3rem;
-
-
-      &:not(:first-child) {
-        margin-left: 1rem;
-      }
+      margin-left: 1rem;
 
       a {
         color: var(--color-grey-dark);
-        text-decoration: none;
         transition: all .2s;
 
         &:hover {
@@ -49,6 +56,73 @@
         }
       }
     }
+  }
+
+  &__button {
+    position: relative;
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    z-index: 2000;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+
+    @include respond(phone) {
+      display: block;
+    }
+  }
+
+  &__background {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 6rem;
+    right: 0;
+    width: 15rem;
+    height: 7rem;
+    background-color: var(--color-white);
+    z-index: 1000;
+    animation: animateNavHeight .4s forwards;
+  }
+
+  // ICON
+  &__icon {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      width: 3rem;
+      height: 2px;
+      background-color: var(--color-grey-dark);
+
+      transition: all .2s;
+
+      &--1 {
+        top: .5rem;
+      }
+
+      &--2 {
+        top: 1.5rem;
+      }
+
+      &--3 {
+        top: 2.5rem;
+      }
+
+      &--rotated-1 {
+        top: 1.5rem;
+        transform: rotate(135deg);
+      }
+
+      &--rotated-2 {
+        display: none;
+      }
+
+      &--rotated-3 {
+        top: 1.5rem;
+        transform: rotate(-135deg);
+      }
   }
 }
 
