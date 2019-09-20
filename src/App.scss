@@ -57,6 +57,10 @@ ORDER: Base -> typography -> general layout(header, footer..) -> grid -> page la
   --line: 1px solid var(--color-grey-light);
 }
 
+/****************
+** BASE******
+*****************/
+
 *,
 *::after,
 *::before {
@@ -88,7 +92,7 @@ body {
 }
 
 /****************
-** HEADINGS******s
+** HEADINGS******
 *****************/
 
 .heading-primary {
