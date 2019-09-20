@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { getCurrentRecipe, setLoading } from '../../redux/recipe/recipeActions';
+import { normalizeTitle } from '../../utils/recipeUtils';
 
 const RecipeListItem = ({
   recipe: { recipe_id, image_url, title, publisher },
@@ -13,8 +14,7 @@ const RecipeListItem = ({
   match
 }) => {
   // Normalize SLUG title
-  let slug = title.toLowerCase().replace(/[^a-zA-Z ]/g, '');
-  slug = slug.split(' ').join('-');
+  const slug = normalizeTitle(title);
 
   const onLinkClick = () => {
     setLoading();

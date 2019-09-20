@@ -4,7 +4,11 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { searchRecipes, setLoading } from '../../redux/recipe/recipeActions';
+import {
+  searchRecipes,
+  setLoading,
+  setRecipeError
+} from '../../redux/recipe/recipeActions';
 
 import CustomIcons from '../customIcons/customIcons';
 
@@ -13,7 +17,8 @@ const Search = ({
   history,
   loading,
   setLoading,
-  searchFocus
+  searchFocus,
+  setRecipeError
 }) => {
   const searchQuery = createRef();
 
@@ -26,6 +31,9 @@ const Search = ({
 
   const onSearch = e => {
     e.preventDefault();
+    if (searchQuery.current.value === '') {
+      return setRecipeError('Please enter something');
+    }
     setLoading();
     searchRecipes(searchQuery.current.value, history);
     searchQuery.current.value = '';
@@ -39,7 +47,6 @@ const Search = ({
           type='text'
           className='search__input'
           ref={searchQuery}
-          required
           disabled={loading}
         />
         <CustomIcons name='icon-search' type='icon-secondary' />
@@ -62,7 +69,7 @@ export default compose(
   withRouter,
   connect(
     mapStateToProps,
-    { searchRecipes, setLoading }
+    { searchRecipes, setLoading, setRecipeError }
   )
 )(Search);
 

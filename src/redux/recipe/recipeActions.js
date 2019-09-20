@@ -21,7 +21,7 @@ export const searchRecipes = (searchQuery, history) => async dispatch => {
     if (res.data.error) {
       const err = `API ${res.data.error} reached, please try again later`;
       console.log(err);
-      setRecipeError(err);
+      dispatch(setRecipeError(err));
     }
     const data = res.data.recipes;
     dispatch({
@@ -30,7 +30,7 @@ export const searchRecipes = (searchQuery, history) => async dispatch => {
     });
     history.push('/recipes');
   } catch (err) {
-    setRecipeError(err.message);
+    dispatch(setRecipeError(err.message));
   }
 };
 
@@ -46,7 +46,7 @@ export const getCurrentRecipe = recipeID => async dispatch => {
       payload: data
     });
   } catch (err) {
-    setRecipeError(err.message);
+    dispatch(setRecipeError(err.message));
   }
 };
 
@@ -86,7 +86,7 @@ export const setRecipeError = msg => dispatch => {
       type: REMOVE_RECIPE_ERROR,
       payload: id
     });
-  });
+  }, 3000);
 };
 
 // Set loading spinner

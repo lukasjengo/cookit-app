@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { likeRecipe, unlikeRecipe } from '../../redux/recipe/recipeActions';
+import { normalizeTitle } from '../../utils/recipeUtils';
 
 import Spinner from '../../layout/spinner/spinner';
 import CustomIcons from '../customIcons/customIcons';
@@ -44,12 +45,11 @@ const Recipe = ({
     return <Spinner style={{ width: '10rem', height: '10rem' }} />;
   } else {
     // Normalize title
-    let title = currentRecipe.title.toLowerCase().replace(/[^a-zA-Z ]/g, '');
-    title = title.split(' ').join('-');
+    const title = normalizeTitle(currentRecipe.title);
 
     // CREATE 404 COMPONENT
     if (match.params.recipeTitle !== title) {
-      return <Fragment>Page Not found</Fragment>;
+      return <div className='not-found-404'>Page not found</div>;
     }
 
     return (

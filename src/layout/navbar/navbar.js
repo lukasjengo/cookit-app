@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Search from '../../components/search/search';
 
 import { ReactComponent as Logo } from '../../assets/muncher-icon.svg';
+import HamburgerIcon from '../hamburgerIcon/hamburgerIcon';
 
 const Navbar = ({ likedRecipes }) => {
   const [toggleMenu, setToggle] = useState(false);
@@ -42,35 +43,7 @@ const Navbar = ({ likedRecipes }) => {
           </li>
         )}
       </ul>
-      <button className='navbar__button' onClick={onToggle}>
-        <span
-          className={
-            toggleMenu
-              ? 'navbar__icon navbar__icon--rotated-1'
-              : 'navbar__icon navbar__icon--1'
-          }
-        >
-          &nbsp;
-        </span>
-        <span
-          className={
-            toggleMenu
-              ? 'navbar__icon navbar__icon--rotated-2'
-              : 'navbar__icon navbar__icon--2'
-          }
-        >
-          &nbsp;
-        </span>
-        <span
-          className={
-            toggleMenu
-              ? 'navbar__icon navbar__icon--rotated-3'
-              : 'navbar__icon navbar__icon--3'
-          }
-        >
-          &nbsp;
-        </span>
-      </button>
+      <HamburgerIcon toggleMenu={toggleMenu} onToggle={onToggle} />
     </nav>
   );
 };

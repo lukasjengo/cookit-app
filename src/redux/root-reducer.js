@@ -7,7 +7,6 @@ import recipeReducer from './recipe/recipeReducer';
 const persistConfig = {
   key: 'root',
   storage
-  // blacklist: ['recipes']
 };
 
 const rootReducer = combineReducers({

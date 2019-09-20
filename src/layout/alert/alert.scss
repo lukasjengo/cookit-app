@@ -1,11 +1,8 @@
 .alert {
-  position: absolute;
-  top: 15rem;
-  right: 15rem;
-
-  &:not(:last-child) {
-    margin-top: 2rem;
-  }
+    position: absolute;
+    top: 8rem;
+    right: 4rem;
+    z-index: 9999;
 
   &__item {
     padding: 1rem 2rem;
