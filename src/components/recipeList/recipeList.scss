@@ -5,4 +5,15 @@
   overflow-x: hidden;
   padding-top: 2rem;
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+  @include respond(tab-land) {
+    flex: 0 1 30%;
+  }
+
+  @include respond(tab-port) {
+    flex: auto;
+    height: auto;
+    overflow: hidden;
+    padding-top: 1rem;
+  }
 }

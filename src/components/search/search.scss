@@ -5,7 +5,7 @@
   align-items: center;
 
   @include respond(phone) {
-    flex: 0 1 65%;
+    flex: 0 1 75%;
   }
 
   &__input {

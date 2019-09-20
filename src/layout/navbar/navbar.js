@@ -18,13 +18,13 @@ const Navbar = ({ likedRecipes }) => {
       <Link to='/'>
         <div className='navbar__logo'>
           <Logo className='navbar__logo--img' />{' '}
-          <span className='navbar__logo--text'>COOKIT</span>
+          <span className='navbar__logo--text u-hide-phone'>COOKIT</span>
         </div>
       </Link>
       <Search />
       <ul
         className={
-          toggleMenu ? 'navbar__nav navbar__background' : 'navbar__nav'
+          toggleMenu ? 'navbar__nav navbar__nav--toggle' : 'navbar__nav'
         }
       >
         <li className='navbar__nav--item'>
