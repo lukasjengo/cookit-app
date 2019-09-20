@@ -16,8 +16,11 @@ let recipeApiKey;
 
 if (process.env.NODE_ENV !== 'production') {
   recipeApiKey = process.env.REACT_APP_RECIPE_API_KEY;
+  console.log(recipeApiKey);
 } else {
+  //test
   recipeApiKey = process.env.RECIPE_API_KEY;
+  console.log(recipeApiKey);
 }
 
 // Search API for recipes
