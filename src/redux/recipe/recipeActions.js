@@ -12,11 +12,19 @@ import {
   SET_SEARCH_FOCUS
 } from './recipeTypes';
 
+let recipeApiKey;
+
+if (process.env.NODE_ENV !== 'production') {
+  recipeApiKey = process.env.REACT_APP_RECIPE_API_KEY;
+} else {
+  recipeApiKey = process.env.RECIPE_API_KEY;
+}
+
 // Search API for recipes
 export const searchRecipes = (searchQuery, history) => async dispatch => {
   try {
     const res = await axios.get(
-      `https://www.food2fork.com/api/search?key=${process.env.REACT_APP_RECIPE_API_KEY}&q=${searchQuery}`
+      `https://www.food2fork.com/api/search?key=${recipeApiKey}&q=${searchQuery}`
     );
     if (res.data.error) {
       const err = `API ${res.data.error} reached, please try again later`;
@@ -38,7 +46,7 @@ export const searchRecipes = (searchQuery, history) => async dispatch => {
 export const getCurrentRecipe = recipeID => async dispatch => {
   try {
     const res = await axios.get(
-      `https://www.food2fork.com/api/get?key=${process.env.REACT_APP_RECIPE_API_KEY}&rId=${recipeID}`
+      `https://www.food2fork.com/api/get?key=${recipeApiKey}&rId=${recipeID}`
     );
     const data = res.data.recipe;
     dispatch({
