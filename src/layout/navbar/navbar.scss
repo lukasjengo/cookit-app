@@ -7,6 +7,10 @@
   box-shadow: var(--shadow-dark);
   padding: 0 4rem;
 
+  @include respond(phone) {
+    padding: 0 1.5rem;
+  }
+
   a {
     text-decoration: none;
   }
@@ -41,7 +45,6 @@
 
       @include respond(phone) {
           display: block;
-          visibility: visible;
           position: absolute;
           top: 6rem;
           right: 0;
