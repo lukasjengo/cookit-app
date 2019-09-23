@@ -3,7 +3,7 @@ Cookit is a single page demo app created with React + Redux that lets you find r
 Surprise yourself by cooking something you have never cooked before.
 
 ## Installation instructions
-1. Fork this directory.
+1. Fork this directory
 2. Run 'npm install'
 3. Start app by writing a command 'npm start'
 
