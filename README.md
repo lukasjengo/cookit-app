@@ -8,5 +8,7 @@ Surprise yourself by cooking something you have never cooked before.
 3. Start app by writing a command 'npm start'
 
 ### Info
-Created by lukasjengo
+Created by lukasjengo<br/>
 API credits go to Food2Fork
+
+Visit app @ https://cookit.ljan.dev/
