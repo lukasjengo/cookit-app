@@ -7,6 +7,7 @@ import HomePage from './pages/homepage/homepage';
 import About from './pages/about/about';
 import LikedRecipes from './pages/likedRecipes/likedRecipes';
 import Recipes from './pages/recipes/recipes';
+import NotFound from './pages/notFound/notFound';
 
 // LAYOUT
 import Navbar from './layout/navbar/navbar';
@@ -39,6 +40,7 @@ const App = ({ searchRecipeList, likedRecipes }) => (
           )
         }
       />
+      <Route component={NotFound} />
     </Switch>
   </div>
 );
