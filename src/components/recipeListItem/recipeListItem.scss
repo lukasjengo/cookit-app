@@ -1,7 +1,7 @@
 .recipe-list {
   margin-top: 1.5rem;
 
-  @include respond(tab-port) {
+  @include respond(tab-land) {
     margin: 0;
     padding: 1.5rem 0;
     a:not(:last-child) {
@@ -9,7 +9,7 @@
     }
   }
 
-  @include respond(tab-port) {
+  @include respond(tab-land) {
     display: flex;
     overflow: auto;
     align-items: center;
@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
 
-    @include respond(tab-port) {
+    @include respond(tab-land) {
       width: 30rem;
       padding: 1rem 1rem;
       background-color: var(--color-grey-light);
@@ -54,7 +54,7 @@
 
     transition: border .2s ease-in;
 
-    @include respond(tab-port) {
+    @include respond(tab-land) {
       flex: 0 0 7rem;
       width: 7rem;
       height: 7rem;
@@ -65,7 +65,7 @@
     position: relative;
     font-size: 1.7rem;
 
-    @include respond(tab-port) {
+    @include respond(tab-land) {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

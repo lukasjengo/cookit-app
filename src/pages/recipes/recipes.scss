@@ -1,7 +1,9 @@
 .recipes-page {
   display: flex;
+  margin-left: $sidebar-width;
 
-  @include respond(tab-port) {
+  @include respond(tab-land) {
     flex-direction: column;
+    margin-left: 0;
   }
 }

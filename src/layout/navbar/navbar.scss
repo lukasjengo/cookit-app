@@ -1,11 +1,14 @@
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
+  height: $navbar-height;
   background-color: var(--color-white);
   box-shadow: var(--shadow-dark);
   padding: 0 4rem;
+
+  z-index: 500;
 
   @include respond(phone) {
     padding: 0 1.5rem;
